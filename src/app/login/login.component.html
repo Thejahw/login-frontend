@@ -1,0 +1,30 @@
+<!-- error message -->
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div class="card" style="width: 25rem;">
+    <!-- form login -->
+<form class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <p class="h4 mb-4 card-header">Sign in</p>
+  
+    <!-- Email -->
+    <div>
+        <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Username" formControlName="username"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    
+    <!-- Password -->
+    <div>
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+  
+    <!-- Sign in button -->
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" >Sign in</button>
+  </form>
+
+
+</div>
